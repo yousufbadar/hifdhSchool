@@ -1,0 +1,91 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="student">
+      <h2 data-cy="studentDetailsHeading"><span>Student</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ student.id }}</span>
+        </dd>
+        <dt><span>First Name</span></dt>
+        <dd>
+          <span>{{ student.firstName }}</span>
+        </dd>
+        <dt><span>Middle Name</span></dt>
+        <dd>
+          <span>{{ student.middleName }}</span>
+        </dd>
+        <dt><span>Last Name</span></dt>
+        <dd>
+          <span>{{ student.lastName }}</span>
+        </dd>
+        <dt><span>Like To Be Called</span></dt>
+        <dd>
+          <span>{{ student.likeToBeCalled }}</span>
+        </dd>
+        <dt><span>Birth Date</span></dt>
+        <dd>
+          <span>{{ student.birthDate | formatMediumDate }}</span>
+        </dd>
+        <dt><span>Photo</span></dt>
+        <dd>
+          <div *ngIf="student.photo">
+            <a (click)="openFile(student.photo, student.photoContentType)">
+              <img [src]="'data:' + student.photoContentType + ';base64,' + student.photo" style="max-width: 100%" alt="student image" />
+            </a>
+            {{ student.photoContentType }}, {{ byteSize(student.photo) }}
+          </div>
+        </dd>
+        <dt><span>Cell Phone</span></dt>
+        <dd>
+          <span>{{ student.cellPhone }}</span>
+        </dd>
+        <dt><span>Home Phone</span></dt>
+        <dd>
+          <span>{{ student.homePhone }}</span>
+        </dd>
+        <dt><span>Email</span></dt>
+        <dd>
+          <span>{{ student.email }}</span>
+        </dd>
+        <dt><span>Street</span></dt>
+        <dd>
+          <span>{{ student.street }}</span>
+        </dd>
+        <dt><span>City</span></dt>
+        <dd>
+          <span>{{ student.city }}</span>
+        </dd>
+        <dt><span>State</span></dt>
+        <dd>
+          <span>{{ student.state }}</span>
+        </dd>
+        <dt><span>Zip</span></dt>
+        <dd>
+          <span>{{ student.zip }}</span>
+        </dd>
+        <dt><span>Institute</span></dt>
+        <dd>
+          <div *ngIf="student.institute">
+            <a [routerLink]="['/institute', student.institute?.id, 'view']">{{ student.institute?.name }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/student', student.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,131 @@
+<div>
+  <h2 id="page-heading" data-cy="TeacherHeading">
+    <span>Teachers</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info mr-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span>Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-teacher"
+        [routerLink]="['/teacher/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span> Create a new Teacher </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="teachers?.length === 0">
+    <span>No teachers found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="teachers && teachers.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span>ID</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="firstName"><span>First Name</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="middleName"><span>Middle Name</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="lastName"><span>Last Name</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="likeToBeCalled"><span>Like To Be Called</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="birthDate"><span>Birth Date</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="photo"><span>Photo</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="cellPhone"><span>Cell Phone</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="homePhone"><span>Home Phone</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="email"><span>Email</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="street"><span>Street</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="city"><span>City</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="state"><span>State</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="zip"><span>Zip</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="institute.name"><span>Institute</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let teacher of teachers; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/teacher', teacher.id, 'view']">{{ teacher.id }}</a>
+          </td>
+          <td>{{ teacher.firstName }}</td>
+          <td>{{ teacher.middleName }}</td>
+          <td>{{ teacher.lastName }}</td>
+          <td>{{ teacher.likeToBeCalled }}</td>
+          <td>{{ teacher.birthDate | formatMediumDate }}</td>
+          <td>
+            <a *ngIf="teacher.photo" (click)="openFile(teacher.photo, teacher.photoContentType)">
+              <img [src]="'data:' + teacher.photoContentType + ';base64,' + teacher.photo" style="max-height: 30px" alt="teacher image" />
+            </a>
+            <span *ngIf="teacher.photo">{{ teacher.photoContentType }}, {{ byteSize(teacher.photo) }}</span>
+          </td>
+          <td>{{ teacher.cellPhone }}</td>
+          <td>{{ teacher.homePhone }}</td>
+          <td>{{ teacher.email }}</td>
+          <td>{{ teacher.street }}</td>
+          <td>{{ teacher.city }}</td>
+          <td>{{ teacher.state }}</td>
+          <td>{{ teacher.zip }}</td>
+          <td>
+            <div *ngIf="teacher.institute">
+              <a [routerLink]="['/institute', teacher.institute?.id, 'view']">{{ teacher.institute?.name }}</a>
+            </div>
+          </td>
+          <td class="text-right">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/teacher', teacher.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/teacher', teacher.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(teacher)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="teachers && teachers.length > 0">
+    <div class="row justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="row justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

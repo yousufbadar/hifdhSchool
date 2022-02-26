@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <div *ngIf="tracker">
+      <h2 data-cy="trackerDetailsHeading"><span>Tracker</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span>ID</span></dt>
+        <dd>
+          <span>{{ tracker.id }}</span>
+        </dd>
+        <dt><span>Page</span></dt>
+        <dd>
+          <span>{{ tracker.page }}</span>
+        </dd>
+        <dt><span>Word</span></dt>
+        <dd>
+          <span>{{ tracker.word }}</span>
+        </dd>
+        <dt><span>Recall</span></dt>
+        <dd>
+          <span>{{ tracker.recall }}</span>
+        </dd>
+        <dt><span>Connect</span></dt>
+        <dd>
+          <span>{{ tracker.connect }}</span>
+        </dd>
+        <dt><span>Tajweed</span></dt>
+        <dd>
+          <span>{{ tracker.tajweed }}</span>
+        </dd>
+        <dt><span>Makhraj</span></dt>
+        <dd>
+          <span>{{ tracker.makhraj }}</span>
+        </dd>
+        <dt><span>Create Timestamp</span></dt>
+        <dd>
+          <span>{{ tracker.createTimestamp | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span>Student</span></dt>
+        <dd>
+          <div *ngIf="tracker.student">
+            <a [routerLink]="['/student', tracker.student?.id, 'view']">{{ tracker.student?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span>Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/tracker', tracker.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span>Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

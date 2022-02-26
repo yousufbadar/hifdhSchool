@@ -1,0 +1,56 @@
+{
+  "changelogDate": "20191128233205",
+  "clientRootFolder": "",
+  "databaseType": "sql",
+  "dto": "no",
+  "entityTableName": "tracker",
+  "fields": [
+    {
+      "fieldName": "page",
+      "fieldType": "Integer",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "word",
+      "fieldType": "Integer",
+      "fieldValidateRules": []
+    },
+    {
+      "fieldName": "recall",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "connect",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "tajweed",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "makhraj",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "createTimestamp",
+      "fieldType": "Instant",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": false,
+  "name": "Tracker",
+  "pagination": "pagination",
+  "relationships": [
+    {
+      "otherEntityField": "id",
+      "otherEntityName": "student",
+      "otherEntityRelationshipName": "tracker",
+      "ownerSide": true,
+      "relationshipName": "student",
+      "relationshipType": "many-to-one"
+    }
+  ],
+  "searchEngine": false,
+  "service": "no"
+}

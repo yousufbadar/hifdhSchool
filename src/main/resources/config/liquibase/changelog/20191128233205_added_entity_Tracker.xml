@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <!--
+        Added the entity Tracker.
+    -->
+    <changeSet id="20191128233205-1" author="jhipster">
+        <createTable tableName="tracker">
+            <column name="id" type="bigint" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="page" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="word" type="integer">
+                <constraints nullable="true" />
+            </column>
+            <column name="recall" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="connect" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="tajweed" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="makhraj" type="boolean">
+                <constraints nullable="true" />
+            </column>
+            <column name="create_timestamp" type="${datetimeType}">
+                <constraints nullable="false" />
+            </column>
+            <column name="student_id" type="bigint">
+                <constraints nullable="true" />
+            </column>
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here -->
+        </createTable>
+        <dropDefaultValue tableName="tracker" columnName="create_timestamp" columnDataType="${datetimeType}"/>
+    </changeSet>
+
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->
+
+    <!--
+        Load sample data generated with Faker.js
+        - This data can be easily edited using a CSV editor (or even MS Excel) and
+          is located in the 'src/main/resources/config/liquibase/fake-data' directory
+        - By default this data is applied when running with the JHipster 'dev' profile.
+          This can be customized by adding or removing 'faker' in the 'spring.liquibase.contexts'
+          Spring Boot configuration key.
+    -->
+    <changeSet id="20191128233205-1-data" author="jhipster" context="faker">
+        <loadData
+                  file="config/liquibase/fake-data/tracker.csv"
+                  separator=";"
+                  tableName="tracker"
+                  usePreparedStatements="true">
+            <column name="id" type="numeric"/>
+            <column name="page" type="numeric"/>
+            <column name="word" type="numeric"/>
+            <column name="recall" type="boolean"/>
+            <column name="connect" type="boolean"/>
+            <column name="tajweed" type="boolean"/>
+            <column name="makhraj" type="boolean"/>
+            <column name="create_timestamp" type="date"/>
+            <!-- jhipster-needle-liquibase-add-loadcolumn - JHipster (and/or extensions) can add load columns here -->
+        </loadData>
+    </changeSet>
+</databaseChangeLog>

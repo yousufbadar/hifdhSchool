@@ -1,0 +1,101 @@
+<div class="row justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-tracker-heading" data-cy="TrackerCreateUpdateHeading">Create or edit a Tracker</h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="form-group" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-control-label" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_page">Page</label>
+          <input type="number" class="form-control" name="page" id="field_page" data-cy="page" formControlName="page" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_word">Word</label>
+          <input type="number" class="form-control" name="word" id="field_word" data-cy="word" formControlName="word" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_recall">Recall</label>
+          <input type="checkbox" class="form-check" name="recall" id="field_recall" data-cy="recall" formControlName="recall" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_connect">Connect</label>
+          <input type="checkbox" class="form-check" name="connect" id="field_connect" data-cy="connect" formControlName="connect" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_tajweed">Tajweed</label>
+          <input type="checkbox" class="form-check" name="tajweed" id="field_tajweed" data-cy="tajweed" formControlName="tajweed" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_makhraj">Makhraj</label>
+          <input type="checkbox" class="form-check" name="makhraj" id="field_makhraj" data-cy="makhraj" formControlName="makhraj" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_createTimestamp">Create Timestamp</label>
+          <div class="d-flex">
+            <input
+              id="field_createTimestamp"
+              data-cy="createTimestamp"
+              type="datetime-local"
+              class="form-control"
+              name="createTimestamp"
+              formControlName="createTimestamp"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+          <div
+            *ngIf="
+              editForm.get('createTimestamp')!.invalid &&
+              (editForm.get('createTimestamp')!.dirty || editForm.get('createTimestamp')!.touched)
+            "
+          >
+            <small class="form-text text-danger" *ngIf="editForm.get('createTimestamp')?.errors?.required"> This field is required. </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('createTimestamp')?.errors?.ZonedDateTimelocal">
+              This field should be a date and time.
+            </small>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-control-label" for="field_student">Student</label>
+          <select class="form-control" id="field_student" data-cy="student" name="student" formControlName="student">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="studentOption.id === editForm.get('student')!.value?.id ? editForm.get('student')!.value : studentOption"
+              *ngFor="let studentOption of studentsSharedCollection; trackBy: trackStudentById"
+            >
+              {{ studentOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span>Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
