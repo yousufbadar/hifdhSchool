@@ -18,6 +18,12 @@ export class TrackerService {
 
   constructor(protected http: HttpClient, protected applicationConfigService: ApplicationConfigService) {}
 
+  findByPage(id: number): Observable<EntityResponseType> {
+    return this.http
+      .get<ITracker>(`${this.resourceUrl}/page/${id}`, { observe: 'response' })
+      .pipe(map((res: EntityResponseType) => this.convertDateFromServer(res)));
+  }
+
   create(tracker: ITracker): Observable<EntityResponseType> {
     const copy = this.convertDateFromClient(tracker);
     return this.http

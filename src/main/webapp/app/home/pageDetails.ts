@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { type } from 'os';
 
 export interface SuraType {
   suraNo: number;
