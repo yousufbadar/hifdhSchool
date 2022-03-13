@@ -1,54 +1,200 @@
 <div class="row">
-  <div class="col-md-3">
-    <span class="hipster img-fluid rounded"></span>
-  </div>
-
   <div class="col-md-9">
-    <h1 class="display-4"><span>Welcome, Java Hipster!</span> (Hifdh School)</h1>
-
-    <p class="lead">This is your homepage</p>
-
-    <div [ngSwitch]="account !== null">
-      <div class="alert alert-success" *ngSwitchCase="true">
-        <span id="home-logged-message" *ngIf="account">You are logged in as user "{{ account.login }}".</span>
-      </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span>If you want to </span>
-        <a class="alert-link" (click)="login()">sign in</a
-        ><span
-          >, you can try the default accounts:<br />- Administrator (login="admin" and password="admin") <br />- User (login="user" and
-          password="user").</span
-        >
-      </div>
-
-      <div class="alert alert-warning" *ngSwitchCase="false">
-        <span>You don't have an account yet?</span>&nbsp;
-        <a class="alert-link" routerLink="account/register">Register a new account</a>
-      </div>
+    <div id="arabicText" class="p001" style="text-align: justify; font-size: 6vw">
+      <span id="1" (click)="save(1)">ﭑ</span>
+      <span id="2" (click)="save(2)">ﭒ</span>
+      <span id="3" (click)="save(3)">ﭓ</span>
+      <span id="4" (click)="save(4)">ﭔ</span>
+      <span id="5" (click)="save(5)">ﭕ</span>
+      <span id="6" (click)="save(6)">ﭖ</span>
+      <span id="7" (click)="save(7)">ﭗ</span>
+      <span id="8" (click)="save(8)">ﭘ</span>
+      <span id="9" (click)="save(9)">ﭙ</span>
+      <span id="10" (click)="save(10)">ﭚ</span>
+      <span id="11" (click)="save(11)">ﭛ</span>
+      <span id="12" (click)="save(12)">ﭜ</span>
+      <span id="13" (click)="save(13)">ﭝ</span>
+      <span id="14" (click)="save(14)">ﭞ</span>
+      <span id="15" (click)="save(15)">ﭟ</span>
+      <span id="16" (click)="save(16)">ﭠ</span>
+      <span id="17" (click)="save(17)">ﭡ</span>
+      <span id="18" (click)="save(18)">ﭢ</span>
+      <span id="19" (click)="save(19)">ﭣ</span>
+      <span id="20" (click)="save(20)">ﭤ</span>
+      <span id="21" (click)="save(21)">ﭥ</span>
+      <span id="22" (click)="save(22)">ﭦ</span>
+      <span id="23" (click)="save(23)">ﭧ</span>
+      <span id="24" (click)="save(24)">ﭨ</span>
+      <span id="25" (click)="save(25)">ﭩ</span>
+      <span id="26" (click)="save(26)">ﭪ</span>
+      <span id="27" (click)="save(27)">ﭫ</span>
+      <span id="28" (click)="save(28)">ﭬ</span>
+      <span id="29" (click)="save(29)">ﭭ</span>
+      <span id="30" (click)="save(30)">ﭮ</span>
+      <span id="31" (click)="save(31)">ﭯ</span>
+      <span id="32" (click)="save(32)">ﭰ</span>
+      <span id="33" (click)="save(33)">ﭱ</span>
+      <span id="34" (click)="save(34)">ﭲ</span>
+      <span id="35" (click)="save(35)">ﭳ</span>
+      <span id="36" (click)="save(36)">ﭴ</span>
+      <span id="37" (click)="save(37)">ﭵ</span>
+      <span id="38" (click)="save(38)">ﭶ</span>
+      <span id="39" (click)="save(39)">ﭷ</span>
+      <span id="40" (click)="save(40)">ﭸ</span>
+      <span id="41" (click)="save(41)">ﭹ</span>
+      <span id="42" (click)="save(42)">ﭺ</span>
+      <span id="43" (click)="save(43)">ﭻ</span>
+      <span id="44" (click)="save(44)">ﭼ</span>
+      <span id="45" (click)="save(45)">ﭽ</span>
+      <span id="46" (click)="save(46)">ﭾ</span>
+      <span id="47" (click)="save(47)">ﭿ</span>
+      <span id="48" (click)="save(48)">ﮀ</span>
+      <span id="49" (click)="save(49)">ﮁ</span>
+      <span id="50" (click)="save(50)">ﮂ</span>
+      <span id="51" (click)="save(51)">ﮃ</span>
+      <span id="52" (click)="save(52)">ﮄ</span>
+      <span id="53" (click)="save(53)">ﮅ</span>
+      <span id="54" (click)="save(54)">ﮆ</span>
+      <span id="55" (click)="save(55)">ﮇ</span>
+      <span id="56" (click)="save(56)">ﮈ</span>
+      <span id="57" (click)="save(57)">ﮉ</span>
+      <span id="58" (click)="save(58)">ﮊ</span>
+      <span id="59" (click)="save(59)">ﮋ</span>
+      <span id="60" (click)="save(60)">ﮌ</span>
+      <span id="61" (click)="save(61)">ﮍ</span>
+      <span id="62" (click)="save(62)">ﮎ</span>
+      <span id="63" (click)="save(63)">ﮏ</span>
+      <span id="64" (click)="save(64)">ﮐ</span>
+      <span id="65" (click)="save(65)">ﮑ</span>
+      <span id="66" (click)="save(66)">ﮒ</span>
+      <span id="67" (click)="save(67)">ﮓ</span>
+      <span id="68" (click)="save(68)">ﮔ</span>
+      <span id="69" (click)="save(69)">ﮕ</span>
+      <span id="70" (click)="save(70)">ﮖ</span>
+      <span id="71" (click)="save(71)">ﮗ</span>
+      <span id="72" (click)="save(72)">ﮘ</span>
+      <span id="73" (click)="save(73)">ﮙ</span>
+      <span id="74" (click)="save(74)">ﮚ</span>
+      <span id="75" (click)="save(75)">ﮛ</span>
+      <span id="76" (click)="save(76)">ﮜ</span>
+      <span id="77" (click)="save(77)">ﮝ</span>
+      <span id="78" (click)="save(78)">ﮞ</span>
+      <span id="79" (click)="save(79)">ﮟ</span>
+      <span id="80" (click)="save(80)">ﮠ</span>
+      <span id="81" (click)="save(81)">ﮡ</span>
+      <span id="82" (click)="save(82)">ﮢ</span>
+      <span id="83" (click)="save(83)">ﮣ</span>
+      <span id="84" (click)="save(84)">ﮤ</span>
+      <span id="85" (click)="save(85)">ﮥ</span>
+      <span id="86" (click)="save(86)">ﮦ</span>
+      <span id="87" (click)="save(87)">ﮧ</span>
+      <span id="88" (click)="save(88)">ﮨ</span>
+      <span id="89" (click)="save(89)">ﮩ</span>
+      <span id="90" (click)="save(90)">ﮪ</span>
+      <span id="91" (click)="save(91)">ﮫ</span>
+      <span id="92" (click)="save(92)">ﮬ</span>
+      <span id="93" (click)="save(93)">ﮭ</span>
+      <span id="94" (click)="save(94)">ﮮ</span>
+      <span id="95" (click)="save(95)">ﮯ</span>
+      <span id="96" (click)="save(96)">ﮰ</span>
+      <span id="97" (click)="save(97)">ﮱ</span>
+      <span id="98" (click)="save(98)">ﯓ</span>
+      <span id="99" (click)="save(99)">ﯔ</span>
+      <span id="100" (click)="save(100)">ﯕ</span>
+      <span id="101" (click)="save(101)">ﯖ</span>
+      <span id="102" (click)="save(102)">ﯗ</span>
+      <span id="103" (click)="save(103)">ﯘ</span>
+      <span id="104" (click)="save(104)">ﯙ</span>
+      <span id="105" (click)="save(105)">ﯚ</span>
+      <span id="106" (click)="save(106)">ﯛ</span>
+      <span id="107" (click)="save(107)">ﯜ</span>
+      <span id="108" (click)="save(108)">ﯝ</span>
+      <span id="109" (click)="save(109)">ﯞ</span>
+      <span id="110" (click)="save(110)">ﯟ</span>
+      <span id="111" (click)="save(111)">ﯠ</span>
+      <span id="112" (click)="save(112)">ﯡ</span>
+      <span id="113" (click)="save(113)">ﯢ</span>
+      <span id="114" (click)="save(114)">ﯣ</span>
+      <span id="115" (click)="save(115)">ﯤ</span>
+      <span id="116" (click)="save(116)">ﯥ</span>
+      <span id="117" (click)="save(117)">ﯦ</span>
+      <span id="118" (click)="save(118)">ﯧ</span>
+      <span id="119" (click)="save(119)">ﯨ</span>
+      <span id="120" (click)="save(120)">ﯩ</span>
+      <span id="121" (click)="save(121)">ﯪ</span>
+      <span id="122" (click)="save(122)">ﯫ</span>
+      <span id="123" (click)="save(123)">ﯬ</span>
+      <span id="124" (click)="save(124)">ﯭ</span>
+      <span id="125" (click)="save(125)">ﯮ</span>
+      <span id="126" (click)="save(126)">ﯯ</span>
+      <span id="127" (click)="save(127)">ﯰ</span>
+      <span id="128" (click)="save(128)">ﯱ</span>
+      <span id="129" (click)="save(129)">ﯲ</span>
+      <span id="130" (click)="save(130)">ﯳ</span>
+      <span id="131" (click)="save(131)">ﯴ</span>
+      <span id="132" (click)="save(132)">ﯵ</span>
+      <span id="133" (click)="save(133)">ﯶ</span>
+      <span id="134" (click)="save(134)">ﯷ</span>
+      <span id="135" (click)="save(135)">ﯸ</span>
+      <span id="136" (click)="save(136)">ﯹ</span>
+      <span id="137" (click)="save(137)">ﯺ</span>
+      <span id="138" (click)="save(138)">ﯻ</span>
+      <span id="139" (click)="save(139)">ﯼ</span>
+      <span id="140" (click)="save(140)">ﯽ</span>
+      <span id="141" (click)="save(141)">ﯾ</span>
+      <span id="142" (click)="save(142)">ﯿ</span>
+      <span id="143" (click)="save(143)">ﰀ</span>
+      <span id="144" (click)="save(144)">ﰁ</span>
+      <span id="145" (click)="save(145)">ﰂ</span>
+      <span id="146" (click)="save(146)">ﰃ</span>
+      <span id="147" (click)="save(147)">ﰄ</span>
+      <span id="148" (click)="save(148)">ﰅ</span>
+      <span id="149" (click)="save(149)">ﰆ</span>
+      <span id="150" (click)="save(150)">ﰇ</span>
+      <span id="151" (click)="save(151)">ﰈ</span>
+      <span id="152" (click)="save(152)">ﰉ</span>
+      <span id="153" (click)="save(153)">ﰊ</span>
+      <span id="154" (click)="save(154)">ﰋ</span>
+      <span id="155" (click)="save(155)">ﰌ</span>
+      <span id="156" (click)="save(156)">ﰍ</span>
+      <span id="157" (click)="save(157)">ﰎ</span>
+      <span id="158" (click)="save(158)">ﰏ</span>
+      <span id="159" (click)="save(159)">ﰐ</span>
+      <span id="160" (click)="save(160)">ﰑ</span>
+      <span id="161" (click)="save(161)">ﰒ</span>
+      <span id="162" (click)="save(162)">ﰓ</span>
+      <span id="163" (click)="save(163)">ﰔ</span>
+      <span id="164" (click)="save(164)">ﰕ</span>
+      <span id="165" (click)="save(165)">ﰖ</span>
+      <span id="166" (click)="save(166)">ﰗ</span>
+      <span id="167" (click)="save(167)">ﰘ</span>
+      <span id="168" (click)="save(168)">ﰙ</span>
+      <span id="169" (click)="save(169)">ﰚ</span>
+      <span id="170" (click)="save(170)">ﰛ</span>
+      <span id="171" (click)="save(171)">ﰜ</span>
+      <span id="172" (click)="save(172)">ﰝ</span>
+      <span id="173" (click)="save(173)">ﰞ</span>
+      <span id="174" (click)="save(174)">ﰟ</span>
+      <span id="175" (click)="save(175)">ﰠ</span>
+      <span id="176" (click)="save(176)">ﰡ</span>
+      <span id="177" (click)="save(177)">ﰢ</span>
+      <span id="178" (click)="save(178)">ﰣ</span>
+      <span id="179" (click)="save(179)">ﰤ</span>
+      <span id="180" (click)="save(180)">ﰥ</span>
+      <span id="181" (click)="save(181)">ﰦ</span>
+      <span id="182" (click)="save(182)">ﰧ</span>
+      <span id="183" (click)="save(183)">ﰨ</span>
+      <span id="184" (click)="save(184)">ﰩ</span>
+      <span id="185" (click)="save(185)">ﰪ</span>
+      <span id="186" (click)="save(186)">ﰫ</span>
+      <span id="187" (click)="save(187)">ﰬ</span>
+      <span id="188" (click)="save(188)">ﰭ</span>
+      <span id="189" (click)="save(189)">ﰮ</span>
+      <span id="190" (click)="save(190)">ﰯ</span>
+      <span id="191" (click)="save(191)">ﰰ</span>
+      <span id="192" (click)="save(192)">ﰱ</span>
+      <span id="193" (click)="save(193)">ﰲ </span>
+      <span id="194" (click)="save(194)">ﰳ</span>
     </div>
-
-    <p>If you have any question on JHipster:</p>
-
-    <ul>
-      <li><a href="https://www.jhipster.tech/" target="_blank" rel="noopener noreferrer">JHipster homepage</a></li>
-      <li>
-        <a href="https://stackoverflow.com/tags/jhipster/info" target="_blank" rel="noopener noreferrer">JHipster on Stack Overflow</a>
-      </li>
-      <li>
-        <a href="https://github.com/jhipster/generator-jhipster/issues?state=open" target="_blank" rel="noopener noreferrer"
-          >JHipster bug tracker</a
-        >
-      </li>
-      <li>
-        <a href="https://gitter.im/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">JHipster public chat room</a>
-      </li>
-      <li><a href="https://twitter.com/jhipster" target="_blank" rel="noopener noreferrer">follow @jhipster on Twitter</a></li>
-    </ul>
-
-    <p>
-      <span>If you like JHipster, don't forget to give us a star on</span>
-      <a href="https://github.com/jhipster/generator-jhipster" target="_blank" rel="noopener noreferrer">GitHub</a>!
-    </p>
   </div>
 </div>

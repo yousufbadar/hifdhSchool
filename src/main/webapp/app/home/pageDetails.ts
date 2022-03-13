@@ -745,11 +745,11 @@ export class PageDetails {
       { page: 604, pageStyle: 'p604', charCount: 73, suraNo: 112, bismil: [0, 19, 47] },
     ];
   }
-  getPageDetails() {
+  getPageDetails(): PageInfo[] {
     return this.pageInfo;
   }
 
-  getSurahDetails() {
+  getSurahDetails(): SuraType[] {
     return this.suraInfo;
   }
 }
